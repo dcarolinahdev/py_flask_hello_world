@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% import 'macro_todos.html' as macros %}
+
+{% block title %}
+    {{ super() }}
+     | Using Jinja2
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/hello.css') }}">
+{% endblock %}
+
+{% block content %}
+    {% if user_ip %}
+        <h1>Hello Flask, tu IP es {{ user_ip }}</h1>
+
+        <ul>
+            {% for todo in todos %}
+                {{ macros.render_todo(todo) }}
+            {% else %}
+                <p>without to-do's</p>
+            {% endfor %}
+        </ul>
+
+    {% else %}
+        <a href="{{ url_for('index') }}">Ir a inicio</a>
+    {% endif %}
+{% endblock %}

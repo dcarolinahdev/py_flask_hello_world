@@ -1,0 +1,22 @@
+*
+{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html
+{
+    font-size: 62.5%;
+    font-family: sans-serif;
+}
+
+main
+{
+    padding-left: 3rem;
+}
+
+img.logo
+{
+    max-height: 3rem;
+}
