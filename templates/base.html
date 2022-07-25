@@ -3,6 +3,7 @@
 {% block head %}
     {{ super() }}
     <title>{% block title %}Platzi Flask{% endblock %}</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
 {% endblock %}
 
 {% block body %}
