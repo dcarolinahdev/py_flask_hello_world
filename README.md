@@ -35,3 +35,31 @@ This command run `flask run`... remember to chmod with 774 like this `sudo chmod
 ```
 flask test
 ```
+
+[you might have to edit this for assert redirect comparisons:](https://pastebin.com/7CLNGK0h) (credits to the author: Carlos Castro in Platzi web page).
+
+```python
+    def assertRedirects(self, response, location, message=None):
+        parts_location = urlparse(location)
+
+        valid_status_codes = (301, 302, 303, 305, 307)
+        valid_status_code_str = ', '.join(str(code) for code in valid_status_codes)
+        not_redirect = "HTTP Status %s expected but got %d" % (valid_status_code_str, response.status_code)
+        self.assertTrue(response.status_code in valid_status_codes, message or not_redirect)
+
+        if parts_location.netloc:
+            expected_location = location
+        else:
+            server_name = self.app.config.get('SERVER_NAME') or 'localhost'
+            expected_location = urljoin("http://%s" % server_name, location)
+            # expected_location = location
+
+        parts_response = urlparse(response.location)
+
+        if parts_response.netloc:
+            self.assertEqual(response.location, expected_location, message)
+        else:
+            server_name = self.app.config.get('SERVER_NAME') or 'localhost'
+            response_url = urljoin("http://%s" % server_name, location)
+            self.assertEqual(response_url, expected_location, message)
+```
