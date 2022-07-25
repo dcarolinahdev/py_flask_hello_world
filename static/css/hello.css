@@ -20,3 +20,8 @@ img.logo
 {
     max-height: 3rem;
 }
+
+div.login-form
+{
+    width: 50vw;
+}
