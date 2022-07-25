@@ -2,7 +2,7 @@
 
 # Versions
 
-    Flask 1.0.2
+    Flask 2.1.3
 
 You can see complete list in requirements.txt.
 
