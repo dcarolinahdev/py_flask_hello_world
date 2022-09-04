@@ -1,10 +1,34 @@
 # My first app in Flask
 
-# Versions
+---
 
-    Flask 2.1.3
+> ***v1.1*** - This is an initial project in a learning path.
 
-You can see complete list in requirements.txt.
+*Some features*
+
+- Models, views and forms in this project are in same file.
+
+- It include error handler for 404 and 500 errors.
+
+- The project include some tests.
+
+- It uses templates for views with template inheritance and jinja 2.
+
+- The project doesn't use (currently) any database.
+
+## Versions
+
+```
+Flask 2.1.3
+Flask-Bootstrap 3.3.7.1
+Flask-Testing 0.8.1
+Flask-WTF 1.0.1
+```
+
+You can see complete list in [requirements.txt](requirements.txt)
+
+---
+---
 
 # How to run this app in localhost?
 
@@ -36,6 +60,7 @@ This command run `flask run`... remember to chmod with 774 like this `sudo chmod
 flask test
 ```
 
+**Note:**
 [you might have to edit this for assert redirect comparisons:](https://pastebin.com/7CLNGK0h) (credits to the author: Carlos Castro in Platzi web page).
 
 ```python
